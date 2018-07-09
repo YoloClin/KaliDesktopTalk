@@ -1,0 +1,5 @@
+# Produciton
+Presentation bulit with reveal.js, ox-reveal, org-mode and emacs - Use C-c C-e R B to regen
+Videos recorded with ffmpeg (~ffmpeg -video_size 1920x1080 -framerate 30 -f x11grab -i :0.0 out.mp4~)
+On-screen keyboard via https://github.com/wavexx/screenkey
+
