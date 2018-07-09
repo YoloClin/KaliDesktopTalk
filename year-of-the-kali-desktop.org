@@ -3,6 +3,7 @@
 #+REVEAL_THEME: night
 #+REVEAL_SPEED: fast
 #+OPTIONS: ^:nil
+#+REVEAL_ROOT: https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/
 
 * Year of the (Kali) GNU/Linux desktop
 Or how to make kali suck less
@@ -11,7 +12,7 @@ Or how to make kali suck less
 https://github.com/YoloClin/KaliDesktopTalk
 https://github.com/YoloClin/dotFiles
 
-* 
+** 
 #+BEGIN_SRC bash
 clin@clin ~ $ whoami
 clin
