@@ -77,9 +77,9 @@ apt update
 - Some graphics drivers that fix tearing, they work but are a 'hack'.
 - Some stuff like hiding the mouse in-place seem to be difficult to achive without hacks
 - X11 doco *was* limited last I checked
-- By default runs on Virtual Terminal 7
 
 * X11 Functions
+- By default runs on Virtual Terminal 7
 - Render windows to display
 - Pass keyboard / mouse events to the window manager, and 'active window' etc
 - Ctrl + Alt + F1-F7 to swap between VTs, useful for debugging when X11 is broken
@@ -123,8 +123,11 @@ xset r rate 220 75
 #+END_SRC
 More later on!
 
+* xset r rate demo
+#+REVEAL_HTML: <video controls><source src="xset_rate.mp4" type="video/mp4"></video>  
+
 * Wayland
-- New protocol removing a bunch of legacy and simplify the graphics stack
+- New protocol removing a bunch of legacy code and simplifying the graphics stack
 - Fixes tearing among other things, composite extensions at a much lower level
 - X11 applications are not compatible with Wayland, need an intermediary library (XWayland)
 - GUI toolkits need to be rewritten to support Wayland, not individual applications (unless they use X11 calls)
@@ -140,16 +143,20 @@ More later on!
   - Decorations
   - Window movement
   - Resizing / Maximize / Minimize / Always on top
+  - Implement 'Workspaces'
   - Keyboard shortcuts (Alt + Tab, workspace switching, etc)
   - Startup Applications (sometimes)
-  - Implement 'Workspaces'
+** Tiling Window Managers 
+- All windows are shown at 100%, no space is wasted!
+- There is still more than one way for window placement to take place!
+- Tiling window managers rock in theory, in some practical applications they fall over - sometimes can be fixed
+- i3 tutorial https://www.youtube.com/watch?v=j1I63wGcvU4 
 
 * My Current Config
 - Openbox Window Manager
 - Tint2 Taskbar
 - Zsh
-- Urxvt terminal (Sucks w/ tmux)
-- Screenkey - https://github.com/wavexx/screenkey
+- Urxvt terminal + kitty
 - Compton (composite manager, fade animations)
 
 * My Current Config - Demo
@@ -169,7 +176,7 @@ More later on!
 *** Common Desktop Environments
 Gnome3 (Kali Default), Mate (A gnome 2 fork), Cinnamon, KDE, XFCE, LXDE, Unity
 *** Pure WMs
-i3, Openbox, Ratpoison, QTile
+i3, Openbox, Ratpoison, QTile, awesome, bspwm, dwm, Ratpoison, qTile, xmonad, Sway (Wayland i3 clone)
 
 * Dotfiles
 - Common term for configuration files stored on github/notmicrosoft
@@ -202,12 +209,6 @@ i3, Openbox, Ratpoison, QTile
 ** Theming Resources
 - Check out reddit.com/r/unixporn (SFW, AFAIK)
 
-** Tiling Window Managers 
-- All windows are shown at 100%, no space is wasted!
-- There is still more than one way for window placement to take place!
-- Tiling window managers rock in theory, in some practical applications they fall over - sometimes can be fixed
-- Tiling Window Managers include: i3, awesome, bspwm, dwm, Ratpoison, qTile, xmonad, Sway (Wayland i3 clone)
-- i3 tutorial https://www.youtube.com/watch?v=j1I63wGcvU4 
 *** Key Driven Browsers
 https://www.reddit.com/r/archlinux/comments/5i23id/your_lightweight_keyboard_driven_browser_of_choice/
 
@@ -398,7 +399,6 @@ fi ;
 - healthchecks.io - 'dead-man switch' service
 - supervisor - run python scripts as daemons
 - gnu pass - standard unix password manager https://www.passwordstore.org/
-- supervisor - run python scripts as daemons
 - fdupes - quickly find duplicate files
 - lxappearance - theme configuration toolkit
 - Fonts - fontawesome, open-sans, source-pro
@@ -444,7 +444,6 @@ F11: Fullscreen some apps
 * Keybinds (Continued)
 - I should probably make use the 'windows' key
 - What about volume up / down, resize windows etc?
-- Should have keybinds for all common applications, ssh servers etc
 - Can use xmodmap to modify the keylayout, replace Capslock with Ctrl or some other mod
 - If you use a touchpad daily, or your mouse sensitivity isn't configured please do that!
 - Is qwerty / dvorak really optimal? Backspace is probably my most used key...
@@ -592,7 +591,7 @@ $command 2>&1 # redirect stderr to stdout
 #+REVEAL_HTML: <video controls><source src="ssh.mp4" type="video/mp4"></video>
 
 *** Tmux
-- Runs as a daemon, allowing remote sessions to stay alive after hangup
+- Runs as a daemon, allowing sessions to stay alive after hangup
 - Adds 'tab-like' behaviour to the terminal
 - Can 'split' the terminal to two sub-screens
 - Multiple clients connect to the same tmux daemon (multiplayer terminal!)
@@ -620,9 +619,9 @@ $command 2>&1 # redirect stderr to stdout
 
 * Further Reading...
 - reddit.com/r/unixporn
-- sectalks slack -> clin
 - irc.freenode.net
 - news.ycombinator.com
+- sectalks slack -> clin
 - the slides https://github.com/YoloClin/KaliDesktopTalk (hack, steal, whatever)
 
 * Go hack some stuff

@@ -49,13 +49,13 @@ Or how to make kali suck less
 
 <pre  class="src src-bash">clin@clin ~ $ whoami
 clin
-clin@clin ~ $ zcat /proc/config | grep -i <span style="color: #aaa198;">"computers"</span>
-<span style="color: #8787d7;">CONFIG_COMPUTERS_ROLE</span>=Pentester + Dev
-<span style="color: #8787d7;">CONFIG_COMPUTERS_LINUX_EXPERIENCE</span>=10 Years
-<span style="color: #8787d7;">CONFIG_COMPUTERS_DISTROS</span>=Gentoo,Ubuntu/Kali,Centos/Fedora,Slackware
-<span style="color: #8787d7;">CONFIG_COMPUTERS_EDITOR</span>=emacs
-<span style="color: #8787d7;">CONFIG_COMPTUERS_KEYMAP</span>=dvorak
-<span style="color: #8787d7;">CONFIG_COMPTUERS_X11_DEV</span>=N
+clin@clin ~ $ zcat /proc/config | grep -i <span style="color: #8ec07c;">"computers"</span>
+<span style="color: #83a598;">CONFIG_COMPUTERS_ROLE</span>=Pentester + Dev
+<span style="color: #83a598;">CONFIG_COMPUTERS_LINUX_EXPERIENCE</span>=10 Years
+<span style="color: #83a598;">CONFIG_COMPUTERS_DISTROS</span>=Gentoo,Ubuntu/Kali,Centos/Fedora,Slackware
+<span style="color: #83a598;">CONFIG_COMPUTERS_EDITOR</span>=emacs
+<span style="color: #83a598;">CONFIG_COMPTUERS_KEYMAP</span>=dvorak
+<span style="color: #83a598;">CONFIG_COMPTUERS_X11_DEV</span>=N
 </pre>
 </div>
 
@@ -126,8 +126,8 @@ clin@clin ~ $ zcat /proc/config | grep -i <span style="color: #aaa198;">"compute
 <div class="org-src-container">
 
 <pre  class="src src-bash">mv /etc/apt/sources.list /etc/apt/sources.list.backup
-<span style="color: #8787d7;">MIRROR</span>=<span style="color: #aaa198;">"http://mirror.internode.on.net/pub/kali/"</span>
-<span style="color: #268bd2;">echo</span> <span style="color: #aaa198;">"deb $MIRROR kali-rolling main contrib non-free"</span> <span style="color: #aaa198;">\</span>
+<span style="color: #83a598;">MIRROR</span>=<span style="color: #8ec07c;">"http://mirror.internode.on.net/pub/kali/"</span>
+<span style="color: #83a598;">echo</span> <span style="color: #8ec07c;">"deb $MIRROR kali-rolling main contrib non-free"</span> <span style="color: #8ec07c;">\</span>
   &gt; /etc/apt/sources.list
 apt update
 </pre>
@@ -185,7 +185,6 @@ apt update
 <li>Some graphics drivers that fix tearing, they work but are a 'hack'.</li>
 <li>Some stuff like hiding the mouse in-place seem to be difficult to achive without hacks</li>
 <li>X11 doco <b>was</b> limited last I checked</li>
-<li>By default runs on Virtual Terminal 7</li>
 
 </ul>
 
@@ -195,6 +194,7 @@ apt update
 <section id="slide-orgheadline13">
 <h2 id="orgheadline13">X11 Functions</h2>
 <ul>
+<li>By default runs on Virtual Terminal 7</li>
 <li>Render windows to display</li>
 <li>Pass keyboard / mouse events to the window manager, and 'active window' etc</li>
 <li>Ctrl + Alt + F1-F7 to swap between VTs, useful for debugging when X11 is broken
@@ -222,7 +222,7 @@ apt update
 </ul>
 <div class="org-src-container">
 
-<pre  class="src src-bash"><span style="color: #268bd2;">echo</span> <span style="color: #aaa198;">"Xft.dpi: 175"</span> &gt; ~/.Xresources
+<pre  class="src src-bash"><span style="color: #83a598;">echo</span> <span style="color: #8ec07c;">"Xft.dpi: 175"</span> &gt; ~/.Xresources
 xrdb ~/.XResources
 </pre>
 </div>
@@ -277,8 +277,8 @@ xrandr --output HDMI-2 --off
 </ul>
 <div class="org-src-container">
 
-<pre  class="src src-bash"><span style="color: #008787; background-color: #262626;"># </span><span style="color: #008787; background-color: #262626;">Key delay, first arg is ms from keydown to keyrepeat </span>
-<span style="color: #008787; background-color: #262626;"># </span><span style="color: #008787; background-color: #262626;">(lower = faster), second is mhz between key repeat (higher = faster)</span>
+<pre  class="src src-bash"><span style="color: #458588; background-color: #282828;"># </span><span style="color: #458588; background-color: #282828;">Key delay, first arg is ms from keydown to keyrepeat </span>
+<span style="color: #458588; background-color: #282828;"># </span><span style="color: #458588; background-color: #282828;">(lower = faster), second is mhz between key repeat (higher = faster)</span>
 xset r rate 220 75
 </pre>
 </div>
@@ -290,9 +290,16 @@ More later on!
 </section>
 <section>
 <section id="slide-orgheadline17">
-<h2 id="orgheadline17">Wayland</h2>
+<h2 id="orgheadline17">xset r rate demo</h2>
+<video controls><source src="xset_rate.mp4" type="video/mp4"></video>
+
+</section>
+</section>
+<section>
+<section id="slide-orgheadline18">
+<h2 id="orgheadline18">Wayland</h2>
 <ul>
-<li>New protocol removing a bunch of legacy and simplify the graphics stack</li>
+<li>New protocol removing a bunch of legacy code and simplifying the graphics stack</li>
 <li>Fixes tearing among other things, composite extensions at a much lower level</li>
 <li>X11 applications are not compatible with Wayland, need an intermediary library (XWayland)</li>
 <li>GUI toolkits need to be rewritten to support Wayland, not individual applications (unless they use X11 calls)</li>
@@ -302,8 +309,8 @@ More later on!
 </section>
 </section>
 <section>
-<section id="slide-orgheadline18">
-<h2 id="orgheadline18">Wayland (The bad)</h2>
+<section id="slide-orgheadline19">
+<h2 id="orgheadline19">Wayland (The bad)</h2>
 <ul>
 <li>Are Wayland window managers are still scarce?</li>
 <li>Not a drop in replacement</li>
@@ -314,8 +321,8 @@ More later on!
 </section>
 </section>
 <section>
-<section id="slide-orgheadline19">
-<h2 id="orgheadline19">Window Managers</h2>
+<section id="slide-orgheadline21">
+<h2 id="orgheadline21">Window Managers</h2>
 <ul>
 <li>Handle:
 <ul>
@@ -323,26 +330,23 @@ More later on!
 <li>Decorations</li>
 <li>Window movement</li>
 <li>Resizing / Maximize / Minimize / Always on top</li>
+<li>Implement 'Workspaces'</li>
 <li>Keyboard shortcuts (Alt + Tab, workspace switching, etc)</li>
 <li>Startup Applications (sometimes)</li>
-<li>Implement 'Workspaces'</li>
 
 </ul></li>
 
 </ul>
-
 </section>
 </section>
 <section>
 <section id="slide-orgheadline20">
-<h2 id="orgheadline20">My Current Config</h2>
+<h3 id="orgheadline20">Tiling Window Managers</h3>
 <ul>
-<li>Openbox Window Manager</li>
-<li>Tint2 Taskbar</li>
-<li>Zsh</li>
-<li>Urxvt terminal (Sucks w/ tmux)</li>
-<li>Screenkey - <a href="https://github.com/wavexx/screenkey">https://github.com/wavexx/screenkey</a></li>
-<li>Compton (composite manager, fade animations)</li>
+<li>All windows are shown at 100%, no space is wasted!</li>
+<li>There is still more than one way for window placement to take place!</li>
+<li>Tiling window managers rock in theory, in some practical applications they fall over - sometimes can be fixed</li>
+<li>i3 tutorial <a href="https://www.youtube.com/watch?v=j1I63wGcvU4">https://www.youtube.com/watch?v=j1I63wGcvU4</a></li>
 
 </ul>
 
@@ -350,14 +354,28 @@ More later on!
 </section>
 <section>
 <section id="slide-orgheadline22">
-<h2 id="orgheadline22">My Current Config - Demo</h2>
+<h2 id="orgheadline22">My Current Config</h2>
+<ul>
+<li>Openbox Window Manager</li>
+<li>Tint2 Taskbar</li>
+<li>Zsh</li>
+<li>Urxvt terminal + kitty</li>
+<li>Compton (composite manager, fade animations)</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-orgheadline24">
+<h2 id="orgheadline24">My Current Config - Demo</h2>
 <video controls><source src="longdemo-cut.mp4" type="video/mp4"></video>
 
 </section>
 </section>
 <section>
-<section id="slide-orgheadline21">
-<h3 id="orgheadline21">Window Managers (Continued)</h3>
+<section id="slide-orgheadline23">
+<h3 id="orgheadline23">Window Managers (Continued)</h3>
 <ul>
 <li>Some window managers / applciations <b>aren't compliant</b> with X11 spec, there's also some pretty dirty hacks throughout the stack.</li>
 <li>Most pure window managers look terrible with stock configs.</li>
@@ -368,8 +386,8 @@ More later on!
 </section>
 </section>
 <section>
-<section id="slide-orgheadline25">
-<h2 id="orgheadline25">Desktop Environments</h2>
+<section id="slide-orgheadline27">
+<h2 id="orgheadline27">Desktop Environments</h2>
 <ul>
 <li>Typically 'more' than just Window Managers but loosely defined</li>
 <li>Destkop environments usually handle the taskbar, application starters, computer settings, wallpapers etc</li>
@@ -381,25 +399,25 @@ More later on!
 </section>
 </section>
 <section>
-<section id="slide-orgheadline23">
-<h4 id="orgheadline23">Common Desktop Environments</h4>
+<section id="slide-orgheadline25">
+<h4 id="orgheadline25">Common Desktop Environments</h4>
 <p>
 Gnome3 (Kali Default), Mate (A gnome 2 fork), Cinnamon, KDE, XFCE, LXDE, Unity
 </p>
 </section>
 </section>
 <section>
-<section id="slide-orgheadline24">
-<h4 id="orgheadline24">Pure WMs</h4>
+<section id="slide-orgheadline26">
+<h4 id="orgheadline26">Pure WMs</h4>
 <p>
-i3, Openbox, Ratpoison, QTile
+i3, Openbox, Ratpoison, QTile, awesome, bspwm, dwm, Ratpoison, qTile, xmonad, Sway (Wayland i3 clone)
 </p>
 
 </section>
 </section>
 <section>
-<section id="slide-orgheadline26">
-<h2 id="orgheadline26">Dotfiles</h2>
+<section id="slide-orgheadline28">
+<h2 id="orgheadline28">Dotfiles</h2>
 <ul>
 <li>Common term for configuration files stored on github/notmicrosoft</li>
 <li>Public repo <a href="https://github.com/YoloClin/dotFiles">https://github.com/YoloClin/dotFiles</a></li>
@@ -409,16 +427,16 @@ i3, Openbox, Ratpoison, QTile
 <div class="org-src-container">
 
 <pre  class="src src-bash">*
-<span style="color: #d75fd7;">!</span>*/
-<span style="color: #d75fd7;">!</span>path/to/unignored
+<span style="color: #d3869b;">!</span>*/
+<span style="color: #d3869b;">!</span>path/to/unignored
 </pre>
 </div>
 
 </section>
 </section>
 <section>
-<section id="slide-orgheadline27">
-<h2 id="orgheadline27">Grapical Toolkits</h2>
+<section id="slide-orgheadline29">
+<h2 id="orgheadline29">Grapical Toolkits</h2>
 <ul>
 <li>Most graphical applications use a GUI toolkit</li>
 <li>Toolkits provide a standardised method for developing GUI applications, so stuff like buttons, input fields, scroll bars etc all look and behave consistently</li>
@@ -436,8 +454,8 @@ i3, Openbox, Ratpoison, QTile
 </section>
 </section>
 <section>
-<section id="slide-orgheadline34">
-<h2 id="orgheadline34">Theming</h2>
+<section id="slide-orgheadline35">
+<h2 id="orgheadline35">Theming</h2>
 <ul>
 <li>Consistency? You will need to theme + configure most/all of them!</li>
 <li>Icons are seperate to themes</li>
@@ -455,8 +473,8 @@ i3, Openbox, Ratpoison, QTile
 </section>
 </section>
 <section>
-<section id="slide-orgheadline28">
-<h3 id="orgheadline28">Theming Resources</h3>
+<section id="slide-orgheadline31">
+<h3 id="orgheadline31">Theming Resources</h3>
 <ul>
 <li>Check out reddit.com/r/unixporn (SFW, AFAIK)</li>
 
@@ -466,20 +484,7 @@ i3, Openbox, Ratpoison, QTile
 </section>
 <section>
 <section id="slide-orgheadline30">
-<h3 id="orgheadline30">Tiling Window Managers</h3>
-<ul>
-<li>All windows are shown at 100%, no space is wasted!</li>
-<li>There is still more than one way for window placement to take place!</li>
-<li>Tiling window managers rock in theory, in some practical applications they fall over - sometimes can be fixed</li>
-<li>Tiling Window Managers include: i3, awesome, bspwm, dwm, Ratpoison, qTile, xmonad, Sway (Wayland i3 clone)</li>
-<li>i3 tutorial <a href="https://www.youtube.com/watch?v=j1I63wGcvU4">https://www.youtube.com/watch?v=j1I63wGcvU4</a></li>
-
-</ul>
-</section>
-</section>
-<section>
-<section id="slide-orgheadline29">
-<h4 id="orgheadline29">Key Driven Browsers</h4>
+<h4 id="orgheadline30">Key Driven Browsers</h4>
 <p>
 <a href="https://www.reddit.com/r/archlinux/comments/5i23id/your_lightweight_keyboard_driven_browser_of_choice/">https://www.reddit.com/r/archlinux/comments/5i23id/your_lightweight_keyboard_driven_browser_of_choice/</a>
 </p>
@@ -487,8 +492,8 @@ i3, Openbox, Ratpoison, QTile
 </section>
 </section>
 <section>
-<section id="slide-orgheadline32">
-<h3 id="orgheadline32">Composite Extensions</h3>
+<section id="slide-orgheadline33">
+<h3 id="orgheadline33">Composite Extensions</h3>
 <ul>
 <li>Transparency, windows transition effecs, 'wobbly windows', 'cube effect' etc.</li>
 <li>Compiz was the most over-the-top composite window manager. Gnome3 -&gt; Kali default</li>
@@ -501,8 +506,8 @@ i3, Openbox, Ratpoison, QTile
 </section>
 </section>
 <section>
-<section id="slide-orgheadline31">
-<h4 id="orgheadline31">My current composite manager</h4>
+<section id="slide-orgheadline32">
+<h4 id="orgheadline32">My current composite manager</h4>
 <ul>
 <li>Very basic, snappy fade from window to window</li>
 
@@ -518,8 +523,8 @@ compton -f -D 3
 </section>
 </section>
 <section>
-<section id="slide-orgheadline33">
-<h3 id="orgheadline33">Testing Window Managers / Doing other obscure stuff</h3>
+<section id="slide-orgheadline34">
+<h3 id="orgheadline34">Testing Window Managers / Doing other obscure stuff</h3>
 <ul>
 <li>Xephyr is basically an X11 session within a window</li>
 <li>Useful for testing window managers / themes</li>
@@ -530,19 +535,19 @@ compton -f -D 3
 
 <div class="org-src-container">
 
-<pre  class="src src-bash"><span style="color: #008787; background-color: #262626;"># </span><span style="color: #008787; background-color: #262626;">Start Xephyr running on $DISPLAY 8</span>
+<pre  class="src src-bash"><span style="color: #458588; background-color: #282828;"># </span><span style="color: #458588; background-color: #282828;">Start Xephyr running on $DISPLAY 8</span>
 Xephyr  +extension RANDR -screen 800x600 :8 -ac &amp;
-<span style="color: #008787; background-color: #262626;"># </span><span style="color: #008787; background-color: #262626;">Run xterm inside Xephyr</span>
-<span style="color: #8787d7;">DISPLAY</span>=:8 xterm
-<span style="color: #008787; background-color: #262626;"># </span><span style="color: #008787; background-color: #262626;">Alternatively, run a WM within Xephyr</span>
-<span style="color: #8787d7;">DISPLAY</span>=:8 openbox
+<span style="color: #458588; background-color: #282828;"># </span><span style="color: #458588; background-color: #282828;">Run xterm inside Xephyr</span>
+<span style="color: #83a598;">DISPLAY</span>=:8 xterm
+<span style="color: #458588; background-color: #282828;"># </span><span style="color: #458588; background-color: #282828;">Alternatively, run a WM within Xephyr</span>
+<span style="color: #83a598;">DISPLAY</span>=:8 openbox
 </pre>
 </div>
 </section>
 </section>
 <section>
-<section id="slide-orgheadline35">
-<h2 id="orgheadline35"></h2>
+<section id="slide-orgheadline36">
+<h2 id="orgheadline36"></h2>
 
 <div class="figure">
 <p><img src="xephyr.png" alt="xephyr.png" />
@@ -552,8 +557,8 @@ Xephyr  +extension RANDR -screen 800x600 :8 -ac &amp;
 </section>
 </section>
 <section>
-<section id="slide-orgheadline38">
-<h2 id="orgheadline38">Login Managers</h2>
+<section id="slide-orgheadline39">
+<h2 id="orgheadline39">Login Managers</h2>
 <ul>
 <li>GDM seems broken on Kali
 <ul>
@@ -568,28 +573,28 @@ Xephyr  +extension RANDR -screen 800x600 :8 -ac &amp;
 </section>
 </section>
 <section>
-<section id="slide-orgheadline36">
-<h3 id="orgheadline36">LXDM</h3>
+<section id="slide-orgheadline37">
+<h3 id="orgheadline37">LXDM</h3>
 <p>
 Supports autologin, lightweight, Window manager be configured from homedir
 </p>
 <div class="org-src-container">
 
-<pre  class="src src-bash"><span style="color: #008787; background-color: #262626;"># </span><span style="color: #008787; background-color: #262626;">Set WM to gnome</span>
-<span style="color: #268bd2;">echo</span> <span style="color: #aaa198;">"gnome-session"</span> &gt;&gt; ~/.xprofile
-<span style="color: #008787; background-color: #262626;"># </span><span style="color: #008787; background-color: #262626;">Will prompt to set default login manager, choose lxdm</span>
+<pre  class="src src-bash"><span style="color: #458588; background-color: #282828;"># </span><span style="color: #458588; background-color: #282828;">Set WM to gnome</span>
+<span style="color: #83a598;">echo</span> <span style="color: #8ec07c;">"gnome-session"</span> &gt;&gt; ~/.xprofile
+<span style="color: #458588; background-color: #282828;"># </span><span style="color: #458588; background-color: #282828;">Will prompt to set default login manager, choose lxdm</span>
 apt install -y lxdm
-<span style="color: #008787; background-color: #262626;"># </span><span style="color: #008787; background-color: #262626;">Configure relevant areas of lxdm config</span>
-sed -i <span style="color: #aaa198;">"s/# autologin=dgod/autologin=root/"</span> /etc/lxdm/lxdm.conf
-sed -i <span style="color: #aaa198;">"s/# skip_password=1/skip_password=1/"</span> /etc/lxdm/lxdm.conf
+<span style="color: #458588; background-color: #282828;"># </span><span style="color: #458588; background-color: #282828;">Configure relevant areas of lxdm config</span>
+sed -i <span style="color: #8ec07c;">"s/# autologin=dgod/autologin=root/"</span> /etc/lxdm/lxdm.conf
+sed -i <span style="color: #8ec07c;">"s/# skip_password=1/skip_password=1/"</span> /etc/lxdm/lxdm.conf
 </pre>
 </div>
 
 </section>
 </section>
 <section>
-<section id="slide-orgheadline37">
-<h3 id="orgheadline37">SLiM</h3>
+<section id="slide-orgheadline38">
+<h3 id="orgheadline38">SLiM</h3>
 <p>
 LXDM doesn't seem to work well on Ubuntu, SLiM does very similar:
 </p>
@@ -597,8 +602,8 @@ LXDM doesn't seem to work well on Ubuntu, SLiM does very similar:
 
 <pre  class="src src-bash">apt install -y slim
 
-<span style="color: #268bd2;">echo</span> <span style="color: #aaa198;">"#!/bin/bash"</span> &gt;&gt; ~/.xinitrc
-<span style="color: #268bd2;">echo</span> <span style="color: #aaa198;">"exec gnome-session"</span> &gt;&gt; ~/.xinitrc
+<span style="color: #83a598;">echo</span> <span style="color: #8ec07c;">"#!/bin/bash"</span> &gt;&gt; ~/.xinitrc
+<span style="color: #83a598;">echo</span> <span style="color: #8ec07c;">"exec gnome-session"</span> &gt;&gt; ~/.xinitrc
 chmod +x ~/.xinitrc
 </pre>
 </div>
@@ -609,8 +614,8 @@ Note: SLiM is pretty much inactive / dead, there's probably better alternatives.
 </section>
 </section>
 <section>
-<section id="slide-orgheadline40">
-<h2 id="orgheadline40">Lock Screens</h2>
+<section id="slide-orgheadline41">
+<h2 id="orgheadline41">Lock Screens</h2>
 <ul>
 <li>None of the lightweight lock tools are great, from my experience
 <ul>
@@ -630,8 +635,8 @@ Note: SLiM is pretty much inactive / dead, there's probably better alternatives.
 </section>
 </section>
 <section>
-<section id="slide-orgheadline39">
-<h3 id="orgheadline39">My current lock screen</h3>
+<section id="slide-orgheadline40">
+<h3 id="orgheadline40">My current lock screen</h3>
 
 <div class="figure">
 <p><img src="lock.png" alt="lock.png" />
@@ -641,8 +646,8 @@ Note: SLiM is pretty much inactive / dead, there's probably better alternatives.
 </section>
 </section>
 <section>
-<section id="slide-orgheadline43">
-<h2 id="orgheadline43">WMs / DEs</h2>
+<section id="slide-orgheadline44">
+<h2 id="orgheadline44">WMs / DEs</h2>
 <ul>
 <li>Some Window Managers out of the box are ugly</li>
 <li>upto you to customise</li>
@@ -654,16 +659,16 @@ Note: SLiM is pretty much inactive / dead, there's probably better alternatives.
 </section>
 </section>
 <section>
-<section id="slide-orgheadline41">
-<h4 id="orgheadline41">Floating</h4>
+<section id="slide-orgheadline42">
+<h4 id="orgheadline42">Floating</h4>
 <p>
 Gnome, KDE, Xfce, Openbox, Weston (Wayland only)
 </p>
 </section>
 </section>
 <section>
-<section id="slide-orgheadline42">
-<h4 id="orgheadline42">Tiled</h4>
+<section id="slide-orgheadline43">
+<h4 id="orgheadline43">Tiled</h4>
 <p>
 i3, ratpoison, qtile, bspwm, xmonad, awesome
 </p>
@@ -671,12 +676,12 @@ i3, ratpoison, qtile, bspwm, xmonad, awesome
 </section>
 </section>
 <section>
-<section id="slide-orgheadline44">
-<h2 id="orgheadline44">Mate</h2>
+<section id="slide-orgheadline45">
+<h2 id="orgheadline45">Mate</h2>
 <div class="org-src-container">
 
 <pre  class="src src-bash">apt install -y mate-core mate-desktop-environment-extra
-<span style="color: #268bd2;">echo</span> <span style="color: #aaa198;">"mate-session"</span> &gt; ~/.xprofile
+<span style="color: #83a598;">echo</span> <span style="color: #8ec07c;">"mate-session"</span> &gt; ~/.xprofile
 </pre>
 </div>
 
@@ -688,12 +693,12 @@ i3, ratpoison, qtile, bspwm, xmonad, awesome
 </section>
 </section>
 <section>
-<section id="slide-orgheadline45">
-<h2 id="orgheadline45">Xfce</h2>
+<section id="slide-orgheadline46">
+<h2 id="orgheadline46">Xfce</h2>
 <div class="org-src-container">
 
 <pre  class="src src-bash">apt install xfce4
-<span style="color: #268bd2;">echo</span> <span style="color: #aaa198;">'xfce4-session'</span> &gt; .xprofile
+<span style="color: #83a598;">echo</span> <span style="color: #8ec07c;">'xfce4-session'</span> &gt; .xprofile
 /etc/init.d/xdm restart
 </pre>
 </div>
@@ -706,8 +711,8 @@ i3, ratpoison, qtile, bspwm, xmonad, awesome
 </section>
 </section>
 <section>
-<section id="slide-orgheadline46">
-<h2 id="orgheadline46">i3</h2>
+<section id="slide-orgheadline47">
+<h2 id="orgheadline47">i3</h2>
 <ul>
 <li>Most popular tiled window manager</li>
 <li>Video tutorial a good starting point <a href="https://www.youtube.com/watch?v=j1I63wGcvU4">https://www.youtube.com/watch?v=j1I63wGcvU4</a>
@@ -726,8 +731,8 @@ i3, ratpoison, qtile, bspwm, xmonad, awesome
 </section>
 </section>
 <section>
-<section id="slide-orgheadline47">
-<h2 id="orgheadline47">Openbox</h2>
+<section id="slide-orgheadline48">
+<h2 id="orgheadline48">Openbox</h2>
 <ul>
 <li>Basic WM</li>
 <li>Ugly out of the box - use obconf to configure</li>
@@ -739,12 +744,12 @@ i3, ratpoison, qtile, bspwm, xmonad, awesome
 <div class="org-src-container">
 
 <pre  class="src src-bash">apt install -y openbox tint2
-<span style="color: #268bd2; font-weight: bold;">exec</span> openbox &gt;&gt; ~/.xprofile
-<span style="color: #008787; background-color: #262626;"># </span><span style="color: #008787; background-color: #262626;">Configure</span>
+<span style="color: #83a598; font-weight: bold;">exec</span> openbox &gt;&gt; ~/.xprofile
+<span style="color: #458588; background-color: #282828;"># </span><span style="color: #458588; background-color: #282828;">Configure</span>
 mkdir -p ~/.config/openbox
-<span style="color: #268bd2;">echo</span> <span style="color: #aaa198;">"#!/bin/bash"</span> &gt;&gt; ~/.config/openbox/autostart
-<span style="color: #268bd2;">echo</span> <span style="color: #aaa198;">"compton -f -D 3 &amp;"</span> &gt;&gt; ~/.config/openbox/autostart
-<span style="color: #268bd2;">echo</span> <span style="color: #aaa198;">"tint2"</span> &gt;&gt; ~/.config/openbox/autostart
+<span style="color: #83a598;">echo</span> <span style="color: #8ec07c;">"#!/bin/bash"</span> &gt;&gt; ~/.config/openbox/autostart
+<span style="color: #83a598;">echo</span> <span style="color: #8ec07c;">"compton -f -D 3 &amp;"</span> &gt;&gt; ~/.config/openbox/autostart
+<span style="color: #83a598;">echo</span> <span style="color: #8ec07c;">"tint2"</span> &gt;&gt; ~/.config/openbox/autostart
 chmod +x ~/.config/openbox/autostart
 </pre>
 </div>
@@ -752,14 +757,14 @@ chmod +x ~/.config/openbox/autostart
 </section>
 </section>
 <section>
-<section id="slide-orgheadline60">
-<h2 id="orgheadline60">Utilities</h2>
-<div class="outline-text-2" id="text-orgheadline60">
+<section id="slide-orgheadline61">
+<h2 id="orgheadline61">Utilities</h2>
+<div class="outline-text-2" id="text-orgheadline61">
 </div></section>
 </section>
 <section>
-<section id="slide-orgheadline48">
-<h3 id="orgheadline48">rofi</h3>
+<section id="slide-orgheadline49">
+<h3 id="orgheadline49">rofi</h3>
 <ul>
 <li>A simple 'run' dialog</li>
 <li>supports better autocomplete than 'dmenu'</li>
@@ -775,8 +780,8 @@ rofi -show run
 </section>
 </section>
 <section>
-<section id="slide-orgheadline50">
-<h3 id="orgheadline50"></h3>
+<section id="slide-orgheadline51">
+<h3 id="orgheadline51"></h3>
 
 <div class="figure">
 <p><img src="rofi1.png" alt="rofi1.png" />
@@ -785,8 +790,8 @@ rofi -show run
 </section>
 </section>
 <section>
-<section id="slide-orgheadline49">
-<h4 id="orgheadline49"></h4>
+<section id="slide-orgheadline50">
+<h4 id="orgheadline50"></h4>
 
 <div class="figure">
 <p><img src="rofi2.png" alt="rofi2.png" />
@@ -796,8 +801,8 @@ rofi -show run
 </section>
 </section>
 <section>
-<section id="slide-orgheadline51">
-<h3 id="orgheadline51"></h3>
+<section id="slide-orgheadline52">
+<h3 id="orgheadline52"></h3>
 
 <div class="figure">
 <p><img src="rofi3.png" alt="rofi3.png" />
@@ -807,8 +812,8 @@ rofi -show run
 </section>
 </section>
 <section>
-<section id="slide-orgheadline52">
-<h3 id="orgheadline52">GUI File Explorers</h3>
+<section id="slide-orgheadline53">
+<h3 id="orgheadline53">GUI File Explorers</h3>
 <ul>
 <li>I Mostly use BASH / ZSH, but:
 <ul>
@@ -823,8 +828,8 @@ rofi -show run
 </section>
 </section>
 <section>
-<section id="slide-orgheadline53">
-<h3 id="orgheadline53">Image Viewers</h3>
+<section id="slide-orgheadline54">
+<h3 id="orgheadline54">Image Viewers</h3>
 <ul>
 <li>eog</li>
 <li>mirage</li>
@@ -836,8 +841,8 @@ rofi -show run
 </section>
 </section>
 <section>
-<section id="slide-orgheadline54">
-<h3 id="orgheadline54">Video / Audio</h3>
+<section id="slide-orgheadline55">
+<h3 id="orgheadline55">Video / Audio</h3>
 <ul>
 <li>mplayer</li>
 <li>ffmpeg (encoding)</li>
@@ -853,8 +858,8 @@ rofi -show run
 </section>
 </section>
 <section>
-<section id="slide-orgheadline55">
-<h3 id="orgheadline55">Ansible</h3>
+<section id="slide-orgheadline56">
+<h3 id="orgheadline56">Ansible</h3>
 <ul>
 <li>Define a state the system should be in</li>
 <li>Ansible ensures the system meets the desired state, handles package installs etc</li>
@@ -866,8 +871,8 @@ rofi -show run
 </section>
 </section>
 <section>
-<section id="slide-orgheadline56">
-<h3 id="orgheadline56">Script</h3>
+<section id="slide-orgheadline57">
+<h3 id="orgheadline57">Script</h3>
 <ul>
 <li>Records tty input <b>and</b> output, can replay it later</li>
 <li>Basic usage:</li>
@@ -876,7 +881,7 @@ rofi -show run
 <div class="org-src-container">
 
 <pre  class="src src-bash">&gt; script recording.shell; 
-&gt; echo <span style="color: #aaa198;">"hello world"</span>; 
+&gt; echo <span style="color: #8ec07c;">"hello world"</span>; 
 &gt; exit;
 &gt; cat recording.shell
 </pre>
@@ -888,25 +893,24 @@ rofi -show run
 </ul>
 <div class="org-src-container">
 
-<pre  class="src src-bash"><span style="color: #268bd2; font-weight: bold;">if</span> [ <span style="color: #aaa198;">"$(ps -ocommand= -p $PPID | awk '{print $1}')"</span> != <span style="color: #aaa198;">'script'</span> ] ; <span style="color: #268bd2; font-weight: bold;">then</span>
-    script -q -f <span style="color: #aaa198;">\</span>
-     $<span style="color: #8787d7;">HOME</span>/.shell_logs/$(date +<span style="color: #aaa198;">"%d-%b-%y_%H-%M-%S"</span>)_shell.log &amp;&amp; <span style="color: #268bd2; font-weight: bold;">exit</span>
-<span style="color: #268bd2; font-weight: bold;">fi</span> ;
+<pre  class="src src-bash"><span style="color: #83a598; font-weight: bold;">if</span> [ <span style="color: #8ec07c;">"$(ps -ocommand= -p $PPID | awk '{print $1}')"</span> != <span style="color: #8ec07c;">'script'</span> ] ; <span style="color: #83a598; font-weight: bold;">then</span>
+    script -q -f <span style="color: #8ec07c;">\</span>
+     $<span style="color: #83a598;">HOME</span>/.shell_logs/$(date +<span style="color: #8ec07c;">"%d-%b-%y_%H-%M-%S"</span>)_shell.log &amp;&amp; <span style="color: #83a598; font-weight: bold;">exit</span>
+<span style="color: #83a598; font-weight: bold;">fi</span> ;
 </pre>
 </div>
 
 </section>
 </section>
 <section>
-<section id="slide-orgheadline57">
-<h3 id="orgheadline57">Misc</h3>
+<section id="slide-orgheadline58">
+<h3 id="orgheadline58">Misc</h3>
 <ul>
 <li>Pushover.net - push notification web service</li>
 <li>pushover-notify - python wrapper + shell script to pushover</li>
 <li>healthchecks.io - 'dead-man switch' service</li>
 <li>supervisor - run python scripts as daemons</li>
 <li>gnu pass - standard unix password manager <a href="https://www.passwordstore.org/">https://www.passwordstore.org/</a></li>
-<li>supervisor - run python scripts as daemons</li>
 <li>fdupes - quickly find duplicate files</li>
 <li>lxappearance - theme configuration toolkit</li>
 <li>Fonts - fontawesome, open-sans, source-pro</li>
@@ -917,43 +921,43 @@ rofi -show run
 </section>
 </section>
 <section>
-<section id="slide-orgheadline58">
-<h3 id="orgheadline58">Screenshotting</h3>
+<section id="slide-orgheadline59">
+<h3 id="orgheadline59">Screenshotting</h3>
 <div class="org-src-container">
 
 <pre  class="src src-bash">apt install scrot
 mkdir -p ~/screenshots
-scrot <span style="color: #aaa198;">'~/screenshots/%Y-%m-%d_%S_$wx$h.png'</span>
-<span style="color: #008787; background-color: #262626;"># </span><span style="color: #008787; background-color: #262626;">Screenshot currenly focused window, include border + decorations</span>
-scrot -u -b <span style="color: #aaa198;">'~/screenshots/%Y-%m-%d_%S_$wx$h.png'</span>
+scrot <span style="color: #8ec07c;">'~/screenshots/%Y-%m-%d_%S_$wx$h.png'</span>
+<span style="color: #458588; background-color: #282828;"># </span><span style="color: #458588; background-color: #282828;">Screenshot currenly focused window, include border + decorations</span>
+scrot -u -b <span style="color: #8ec07c;">'~/screenshots/%Y-%m-%d_%S_$wx$h.png'</span>
 </pre>
 </div>
 
 </section>
 </section>
 <section>
-<section id="slide-orgheadline59">
-<h3 id="orgheadline59">X11 tools</h3>
+<section id="slide-orgheadline60">
+<h3 id="orgheadline60">X11 tools</h3>
 <div class="org-src-container">
 
-<pre  class="src src-bash"><span style="color: #008787; background-color: #262626;"># </span><span style="color: #008787; background-color: #262626;">send key events to window active 2 seconds into the future</span>
-sleep 2; xdotool type <span style="color: #aaa198;">"echo 'Hello World!'"</span>; xdotool key <span style="color: #aaa198;">'Return'</span> 
+<pre  class="src src-bash"><span style="color: #458588; background-color: #282828;"># </span><span style="color: #458588; background-color: #282828;">send key events to window active 2 seconds into the future</span>
+sleep 2; xdotool type <span style="color: #8ec07c;">"echo 'Hello World!'"</span>; xdotool key <span style="color: #8ec07c;">'Return'</span> 
 
-xev      <span style="color: #008787; background-color: #262626;"># </span><span style="color: #008787; background-color: #262626;">Listen to key / mouse events, useful for keybinding</span>
-xrandr   <span style="color: #008787; background-color: #262626;"># </span><span style="color: #008787; background-color: #262626;">Mod resolution / enable / disable monitors on the fly</span>
-xkill    <span style="color: #008787; background-color: #262626;"># </span><span style="color: #008787; background-color: #262626;">send kill signals to window </span>
-<span style="color: #008787; background-color: #262626;"># </span><span style="color: #008787; background-color: #262626;">protip: I also use pkill to kill a process by name</span>
-xprop    <span style="color: #008787; background-color: #262626;"># </span><span style="color: #008787; background-color: #262626;">Window info, useful when debugging tiled wms</span>
-xwininfo <span style="color: #008787; background-color: #262626;"># </span><span style="color: #008787; background-color: #262626;">More window details</span>
-wmctrl   <span style="color: #008787; background-color: #262626;"># </span><span style="color: #008787; background-color: #262626;">Manipulate windows (size, location, title etc)</span>
+xev      <span style="color: #458588; background-color: #282828;"># </span><span style="color: #458588; background-color: #282828;">Listen to key / mouse events, useful for keybinding</span>
+xrandr   <span style="color: #458588; background-color: #282828;"># </span><span style="color: #458588; background-color: #282828;">Mod resolution / enable / disable monitors on the fly</span>
+xkill    <span style="color: #458588; background-color: #282828;"># </span><span style="color: #458588; background-color: #282828;">send kill signals to window </span>
+<span style="color: #458588; background-color: #282828;"># </span><span style="color: #458588; background-color: #282828;">protip: I also use pkill to kill a process by name</span>
+xprop    <span style="color: #458588; background-color: #282828;"># </span><span style="color: #458588; background-color: #282828;">Window info, useful when debugging tiled wms</span>
+xwininfo <span style="color: #458588; background-color: #282828;"># </span><span style="color: #458588; background-color: #282828;">More window details</span>
+wmctrl   <span style="color: #458588; background-color: #282828;"># </span><span style="color: #458588; background-color: #282828;">Manipulate windows (size, location, title etc)</span>
 </pre>
 </div>
 
 </section>
 </section>
 <section>
-<section id="slide-orgheadline61">
-<h2 id="orgheadline61">Keybinds</h2>
+<section id="slide-orgheadline62">
+<h2 id="orgheadline62">Keybinds</h2>
 <ul>
 <li>Hugely underrated, muscle memory vs point and click</li>
 <li>RSI is real</li>
@@ -977,12 +981,11 @@ F11: Fullscreen some apps
 </section>
 </section>
 <section>
-<section id="slide-orgheadline63">
-<h2 id="orgheadline63">Keybinds (Continued)</h2>
+<section id="slide-orgheadline64">
+<h2 id="orgheadline64">Keybinds (Continued)</h2>
 <ul>
 <li>I should probably make use the 'windows' key</li>
 <li>What about volume up / down, resize windows etc?</li>
-<li>Should have keybinds for all common applications, ssh servers etc</li>
 <li>Can use xmodmap to modify the keylayout, replace Capslock with Ctrl or some other mod</li>
 <li>If you use a touchpad daily, or your mouse sensitivity isn't configured please do that!</li>
 <li>Is qwerty / dvorak really optimal? Backspace is probably my most used key&#x2026;</li>
@@ -992,8 +995,8 @@ F11: Fullscreen some apps
 </section>
 </section>
 <section>
-<section id="slide-orgheadline62">
-<h3 id="orgheadline62">Ergodox Ez</h3>
+<section id="slide-orgheadline63">
+<h3 id="orgheadline63">Ergodox Ez</h3>
 
 <div class="figure">
 <p><img src="ergodox_ez.jpg" alt="ergodox_ez.jpg" />
@@ -1003,8 +1006,8 @@ F11: Fullscreen some apps
 </section>
 </section>
 <section>
-<section id="slide-orgheadline69">
-<h2 id="orgheadline69">Terminal Emulators</h2>
+<section id="slide-orgheadline70">
+<h2 id="orgheadline70">Terminal Emulators</h2>
 <ul>
 <li>Colour (16 vs 256 vs 32bit colour)</li>
 <li>Resize mode (Don't use xfce4-terimnal)</li>
@@ -1020,8 +1023,8 @@ F11: Fullscreen some apps
 </section>
 </section>
 <section>
-<section id="slide-orgheadline66">
-<h3 id="orgheadline66">Bash</h3>
+<section id="slide-orgheadline67">
+<h3 id="orgheadline67">Bash</h3>
 <ul>
 <li>Learn it! You'll use it forever, even if you run ZSH / Fish
 <ul>
@@ -1045,66 +1048,66 @@ F11: Fullscreen some apps
 </section>
 </section>
 <section>
-<section id="slide-orgheadline64">
-<h4 id="orgheadline64">My bashrc (the cool bits)</h4>
-<div class="org-src-container">
-
-<pre  class="src src-bash"><span style="color: #008787; background-color: #262626;"># </span><span style="color: #008787; background-color: #262626;">Strip out temp files from emacs / python etc. </span>
-<span style="color: #008787; background-color: #262626;"># </span><span style="color: #008787; background-color: #262626;">ls -a will still show them</span>
-<span style="color: #268bd2;">alias</span> <span style="color: #8787d7;">ls</span>=<span style="color: #aaa198;">'ls --hide="#*" --hide="*~" --hide="*.pyc" --hide="__pycache__" --color=auto'</span>
-
-<span style="color: #008787; background-color: #262626;"># </span><span style="color: #008787; background-color: #262626;">command 'c' will change directory *and* list files</span>
-<span style="color: #008787; background-color: #262626;"># </span><span style="color: #008787; background-color: #262626;">technically cd is a BASH builtin so we need to define a function</span>
-<span style="color: #d75fd7; font-weight: bold;">c</span>() {
-    <span style="color: #268bd2;">builtin</span> cd <span style="color: #aaa198;">"$@"</span> &amp;&amp; ls;
-}
-<span style="color: #008787; background-color: #262626;"># </span><span style="color: #008787; background-color: #262626;">'p' will execute ipython interactive shell if it exists.</span>
-<span style="color: #008787; background-color: #262626;"># </span><span style="color: #008787; background-color: #262626;">Running with args will execute non-interactive</span>
-<span style="color: #d75fd7; font-weight: bold;">p</span>(){
-    <span style="color: #268bd2; font-weight: bold;">if</span> [ <span style="color: #aaa198;">"$#"</span> -eq 0 ] ; <span style="color: #268bd2; font-weight: bold;">then</span>
-        /usr/bin/ipython || /usr/bin/python;
-    <span style="color: #268bd2; font-weight: bold;">else</span>
-        /usr/bin/python <span style="color: #aaa198;">"$@"</span>
-    <span style="color: #268bd2; font-weight: bold;">fi</span>;
-}
-
-<span style="color: #008787; background-color: #262626;"># </span><span style="color: #008787; background-color: #262626;">Execute .pythonrc on interative start, contains imports of file io etc</span>
-<span style="color: #268bd2;">export</span> <span style="color: #8787d7;">PYTHONSTARTUP</span>=<span style="color: #aaa198;">"$HOME/.pythonrc"</span>
-</pre>
-</div>
-
-</section>
-</section>
-<section>
 <section id="slide-orgheadline65">
-<h4 id="orgheadline65">My .bashrc (the cool bits) (Continued)</h4>
+<h4 id="orgheadline65">My bashrc (the cool bits)</h4>
 <div class="org-src-container">
 
-<pre  class="src src-bash"><span style="color: #008787; background-color: #262626;"># </span><span style="color: #008787; background-color: #262626;">WARNING: The following stuff breaks interactive shell utilities such as </span>
-<span style="color: #008787; background-color: #262626;"># </span><span style="color: #008787; background-color: #262626;">nano and emacs as they rebind Ctrl + C etc</span>
-<span style="color: #008787; background-color: #262626;"># </span><span style="color: #008787; background-color: #262626;">TTY-level rebindings. Ctrl-C is moved to Ctrl-G etc.</span>
-<span style="color: #008787; background-color: #262626;"># </span><span style="color: #008787; background-color: #262626;">Find them with stty -a.</span>
-stty intr ^G    <span style="color: #008787; background-color: #262626;"># </span><span style="color: #008787; background-color: #262626;">Formerly C-z, Stop current action (Formerly C-z)</span>
-stty erase ^Z   <span style="color: #008787; background-color: #262626;"># </span><span style="color: #008787; background-color: #262626;">Formerly C-?, Despite its name, seems to be undo</span>
-stty kill ^U    <span style="color: #008787; background-color: #262626;"># </span><span style="color: #008787; background-color: #262626;">Formerly C-u, The left hand version of C-k</span>
-stty werase ^W  <span style="color: #008787; background-color: #262626;"># </span><span style="color: #008787; background-color: #262626;">Formerly C-w, The left hand version of C-k</span>
-stty eof ^D     <span style="color: #008787; background-color: #262626;"># </span><span style="color: #008787; background-color: #262626;">Formerly C-d, When terminal is empty, close it</span>
-stty susp ^Q    <span style="color: #008787; background-color: #262626;"># </span><span style="color: #008787; background-color: #262626;">Formerly C-z, Pause process</span>
+<pre  class="src src-bash"><span style="color: #458588; background-color: #282828;"># </span><span style="color: #458588; background-color: #282828;">Strip out temp files from emacs / python etc. </span>
+<span style="color: #458588; background-color: #282828;"># </span><span style="color: #458588; background-color: #282828;">ls -a will still show them</span>
+<span style="color: #83a598;">alias</span> <span style="color: #83a598;">ls</span>=<span style="color: #8ec07c;">'ls --hide="#*" --hide="*~" --hide="*.pyc" --hide="__pycache__" --color=auto'</span>
 
-<span style="color: #008787; background-color: #262626;"># </span><span style="color: #008787; background-color: #262626;">TTY unbinds</span>
-stty lnext undef    <span style="color: #008787; background-color: #262626;"># </span><span style="color: #008787; background-color: #262626;">previously ^V</span>
-stty rprnt undef    <span style="color: #008787; background-color: #262626;"># </span><span style="color: #008787; background-color: #262626;">previously ^R, probably overbound by gnome-terminal</span>
-stty discard undef  <span style="color: #008787; background-color: #262626;"># </span><span style="color: #008787; background-color: #262626;">previously ^O, Seems to be return</span>
-stty start undef    <span style="color: #008787; background-color: #262626;"># </span><span style="color: #008787; background-color: #262626;">previously ^Q</span>
-stty stop undef     <span style="color: #008787; background-color: #262626;"># </span><span style="color: #008787; background-color: #262626;">previously ^S, Applies scrolllock in a tty</span>
+<span style="color: #458588; background-color: #282828;"># </span><span style="color: #458588; background-color: #282828;">command 'c' will change directory *and* list files</span>
+<span style="color: #458588; background-color: #282828;"># </span><span style="color: #458588; background-color: #282828;">technically cd is a BASH builtin so we need to define a function</span>
+<span style="color: #d3869b; font-weight: bold;">c</span>() {
+    <span style="color: #83a598;">builtin</span> cd <span style="color: #8ec07c;">"$@"</span> &amp;&amp; ls;
+}
+<span style="color: #458588; background-color: #282828;"># </span><span style="color: #458588; background-color: #282828;">'p' will execute ipython interactive shell if it exists.</span>
+<span style="color: #458588; background-color: #282828;"># </span><span style="color: #458588; background-color: #282828;">Running with args will execute non-interactive</span>
+<span style="color: #d3869b; font-weight: bold;">p</span>(){
+    <span style="color: #83a598; font-weight: bold;">if</span> [ <span style="color: #8ec07c;">"$#"</span> -eq 0 ] ; <span style="color: #83a598; font-weight: bold;">then</span>
+        /usr/bin/ipython || /usr/bin/python;
+    <span style="color: #83a598; font-weight: bold;">else</span>
+        /usr/bin/python <span style="color: #8ec07c;">"$@"</span>
+    <span style="color: #83a598; font-weight: bold;">fi</span>;
+}
+
+<span style="color: #458588; background-color: #282828;"># </span><span style="color: #458588; background-color: #282828;">Execute .pythonrc on interative start, contains imports of file io etc</span>
+<span style="color: #83a598;">export</span> <span style="color: #83a598;">PYTHONSTARTUP</span>=<span style="color: #8ec07c;">"$HOME/.pythonrc"</span>
 </pre>
 </div>
 
 </section>
 </section>
 <section>
-<section id="slide-orgheadline67">
-<h3 id="orgheadline67">Z Shell / Oh My ZSH</h3>
+<section id="slide-orgheadline66">
+<h4 id="orgheadline66">My .bashrc (the cool bits) (Continued)</h4>
+<div class="org-src-container">
+
+<pre  class="src src-bash"><span style="color: #458588; background-color: #282828;"># </span><span style="color: #458588; background-color: #282828;">WARNING: The following stuff breaks interactive shell utilities such as </span>
+<span style="color: #458588; background-color: #282828;"># </span><span style="color: #458588; background-color: #282828;">nano and emacs as they rebind Ctrl + C etc</span>
+<span style="color: #458588; background-color: #282828;"># </span><span style="color: #458588; background-color: #282828;">TTY-level rebindings. Ctrl-C is moved to Ctrl-G etc.</span>
+<span style="color: #458588; background-color: #282828;"># </span><span style="color: #458588; background-color: #282828;">Find them with stty -a.</span>
+stty intr ^G    <span style="color: #458588; background-color: #282828;"># </span><span style="color: #458588; background-color: #282828;">Formerly C-z, Stop current action (Formerly C-z)</span>
+stty erase ^Z   <span style="color: #458588; background-color: #282828;"># </span><span style="color: #458588; background-color: #282828;">Formerly C-?, Despite its name, seems to be undo</span>
+stty kill ^U    <span style="color: #458588; background-color: #282828;"># </span><span style="color: #458588; background-color: #282828;">Formerly C-u, The left hand version of C-k</span>
+stty werase ^W  <span style="color: #458588; background-color: #282828;"># </span><span style="color: #458588; background-color: #282828;">Formerly C-w, The left hand version of C-k</span>
+stty eof ^D     <span style="color: #458588; background-color: #282828;"># </span><span style="color: #458588; background-color: #282828;">Formerly C-d, When terminal is empty, close it</span>
+stty susp ^Q    <span style="color: #458588; background-color: #282828;"># </span><span style="color: #458588; background-color: #282828;">Formerly C-z, Pause process</span>
+
+<span style="color: #458588; background-color: #282828;"># </span><span style="color: #458588; background-color: #282828;">TTY unbinds</span>
+stty lnext undef    <span style="color: #458588; background-color: #282828;"># </span><span style="color: #458588; background-color: #282828;">previously ^V</span>
+stty rprnt undef    <span style="color: #458588; background-color: #282828;"># </span><span style="color: #458588; background-color: #282828;">previously ^R, probably overbound by gnome-terminal</span>
+stty discard undef  <span style="color: #458588; background-color: #282828;"># </span><span style="color: #458588; background-color: #282828;">previously ^O, Seems to be return</span>
+stty start undef    <span style="color: #458588; background-color: #282828;"># </span><span style="color: #458588; background-color: #282828;">previously ^Q</span>
+stty stop undef     <span style="color: #458588; background-color: #282828;"># </span><span style="color: #458588; background-color: #282828;">previously ^S, Applies scrolllock in a tty</span>
+</pre>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-orgheadline68">
+<h3 id="orgheadline68">Z Shell / Oh My ZSH</h3>
 <ul>
 <li>ZSH is BASH on steroids, very similar basics but some nuances when scripting</li>
 <li>oh-my-zsh is a bunch of custom ZSH plugins, some are awesome, others can be very slow</li>
@@ -1114,7 +1117,7 @@ stty stop undef     <span style="color: #008787; background-color: #262626;"># <
 <div class="org-src-container">
 
 <pre  class="src src-bash">apt install -y zsh git
-sh -c <span style="color: #aaa198;">"$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"</span>
+sh -c <span style="color: #8ec07c;">"$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"</span>
 </pre>
 </div>
 <ul>
@@ -1125,8 +1128,8 @@ sh -c <span style="color: #aaa198;">"$(curl -fsSL https://raw.githubusercontent.
 </section>
 </section>
 <section>
-<section id="slide-orgheadline68">
-<h3 id="orgheadline68">ZSH Autocompletions</h3>
+<section id="slide-orgheadline69">
+<h3 id="orgheadline69">ZSH Autocompletions</h3>
 <ul>
 <li>There are loads on github</li>
 <li>useful for complex tools like VBoxManage, docker, ifconfig etc</li>
@@ -1136,14 +1139,14 @@ sh -c <span style="color: #aaa198;">"$(curl -fsSL https://raw.githubusercontent.
 </section>
 </section>
 <section>
-<section id="slide-orgheadline78">
-<h2 id="orgheadline78">SSH</h2>
-<div class="outline-text-2" id="text-orgheadline78">
+<section id="slide-orgheadline79">
+<h2 id="orgheadline79">SSH</h2>
+<div class="outline-text-2" id="text-orgheadline79">
 </div></section>
 </section>
 <section>
-<section id="slide-orgheadline70">
-<h4 id="orgheadline70">Authorised Keys</h4>
+<section id="slide-orgheadline71">
+<h4 id="orgheadline71">Authorised Keys</h4>
 <ul>
 <li>Key-based authentication</li>
 <li>Adding your key to a remote systems authorized_keys also adds autocompletion</li>
@@ -1151,11 +1154,11 @@ sh -c <span style="color: #aaa198;">"$(curl -fsSL https://raw.githubusercontent.
 </ul>
 <div class="org-src-container">
 
-<pre  class="src src-bash"><span style="color: #008787; background-color: #262626;"># </span><span style="color: #008787; background-color: #262626;">View public key (Safe to send other people / post publicly)</span>
+<pre  class="src src-bash"><span style="color: #458588; background-color: #282828;"># </span><span style="color: #458588; background-color: #282828;">View public key (Safe to send other people / post publicly)</span>
 cat ~/.ssh/id_rsa.pub
-<span style="color: #008787; background-color: #262626;"># </span><span style="color: #008787; background-color: #262626;">Add our own ssh key to our authorized_keys file</span>
+<span style="color: #458588; background-color: #282828;"># </span><span style="color: #458588; background-color: #282828;">Add our own ssh key to our authorized_keys file</span>
 cat ~/.ssh/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys
-<span style="color: #008787; background-color: #262626;"># </span><span style="color: #008787; background-color: #262626;">Now we can ssh to our own system without a password</span>
+<span style="color: #458588; background-color: #282828;"># </span><span style="color: #458588; background-color: #282828;">Now we can ssh to our own system without a password</span>
 ssh localhost
 </pre>
 </div>
@@ -1163,8 +1166,8 @@ ssh localhost
 </section>
 </section>
 <section>
-<section id="slide-orgheadline71">
-<h4 id="orgheadline71">SCP</h4>
+<section id="slide-orgheadline72">
+<h4 id="orgheadline72">SCP</h4>
 <div class="org-src-container">
 
 <pre  class="src src-bash">scp root@remote:/path/to/remote/file path_to_save/file.txt
@@ -1175,8 +1178,8 @@ scp -r root@remote:/path/to/remote/ path_to_save/
 </section>
 </section>
 <section>
-<section id="slide-orgheadline72">
-<h4 id="orgheadline72">SSHFS</h4>
+<section id="slide-orgheadline73">
+<h4 id="orgheadline73">SSHFS</h4>
 <ul>
 <li>Allows mounting a remote systems fs over ssh</li>
 <li>Much slower than local file I/O</li>
@@ -1189,7 +1192,7 @@ scp -r root@remote:/path/to/remote/ path_to_save/
 mkdir /tmp/test/
 mkdir /tmp/newmount/
 sshfs root@localhost:/tmp/test /tmp/newmount
-<span style="color: #268bd2;">echo</span> <span style="color: #aaa198;">"hello"</span> &gt;&gt; /tmp/newmount/hello.txt
+<span style="color: #83a598;">echo</span> <span style="color: #8ec07c;">"hello"</span> &gt;&gt; /tmp/newmount/hello.txt
 umount /mnt/newmount
 ls /tmp/newmount
 ls /tmp/test
@@ -1199,8 +1202,8 @@ ls /tmp/test
 </section>
 </section>
 <section>
-<section id="slide-orgheadline74">
-<h3 id="orgheadline74">X11 forwarding</h3>
+<section id="slide-orgheadline75">
+<h3 id="orgheadline75">X11 forwarding</h3>
 <ul>
 <li>Useful, but slow</li>
 <li>Security impacts if one side is untrusted</li>
@@ -1208,46 +1211,46 @@ ls /tmp/test
 </ul>
 <div class="org-src-container">
 
-<pre  class="src src-bash"><span style="color: #008787; background-color: #262626;"># </span><span style="color: #008787; background-color: #262626;">These two require X11Forwarding is set to Yes in sshd_config</span>
-<span style="color: #008787; background-color: #262626;"># </span><span style="color: #008787; background-color: #262626;">Some operating systems have this disabled by default for security</span>
-ssh -Y root@localhost <span style="color: #008787; background-color: #262626;"># </span><span style="color: #008787; background-color: #262626;">Enables trusted X11 forwarding</span>
-ssh -X root@localhost <span style="color: #008787; background-color: #262626;"># </span><span style="color: #008787; background-color: #262626;">Enables X11 forwarding</span>
-<span style="color: #008787; background-color: #262626;"># </span><span style="color: #008787; background-color: #262626;">Can also render GUI remote system</span>
-ssh root@localhost <span style="color: #aaa198;">"DISPLAY=:0 xeyes"</span>
+<pre  class="src src-bash"><span style="color: #458588; background-color: #282828;"># </span><span style="color: #458588; background-color: #282828;">These two require X11Forwarding is set to Yes in sshd_config</span>
+<span style="color: #458588; background-color: #282828;"># </span><span style="color: #458588; background-color: #282828;">Some operating systems have this disabled by default for security</span>
+ssh -Y root@localhost <span style="color: #458588; background-color: #282828;"># </span><span style="color: #458588; background-color: #282828;">Enables trusted X11 forwarding</span>
+ssh -X root@localhost <span style="color: #458588; background-color: #282828;"># </span><span style="color: #458588; background-color: #282828;">Enables X11 forwarding</span>
+<span style="color: #458588; background-color: #282828;"># </span><span style="color: #458588; background-color: #282828;">Can also render GUI remote system</span>
+ssh root@localhost <span style="color: #8ec07c;">"DISPLAY=:0 xeyes"</span>
 </pre>
 </div>
 
 </section>
 </section>
 <section>
-<section id="slide-orgheadline73">
-<h4 id="orgheadline73">Job control</h4>
+<section id="slide-orgheadline74">
+<h4 id="orgheadline74">Job control</h4>
 <div class="org-src-container">
 
-<pre  class="src src-bash">nohup xcalc &amp;  <span style="color: #008787; background-color: #262626;"># </span><span style="color: #008787; background-color: #262626;">run xcalc, ignore hangup signal</span>
-xcalc &amp; <span style="color: #268bd2;">disown</span> <span style="color: #008787; background-color: #262626;"># </span><span style="color: #008787; background-color: #262626;">behaves the same as nohup</span>
-<span style="color: #008787; background-color: #262626;"># </span><span style="color: #008787; background-color: #262626;">Alternatively...</span>
-Ctrl + z  <span style="color: #008787; background-color: #262626;"># </span><span style="color: #008787; background-color: #262626;">suspends the current job (freezes processing)</span>
-<span style="color: #268bd2;">bg</span>        <span style="color: #008787; background-color: #262626;"># </span><span style="color: #008787; background-color: #262626;">sends the current job to background (resume processing)</span>
-<span style="color: #268bd2;">fg</span>        <span style="color: #008787; background-color: #262626;"># </span><span style="color: #008787; background-color: #262626;">brings job back to foreground (unfreezes)</span>
-<span style="color: #268bd2;">disown</span>    <span style="color: #008787; background-color: #262626;"># </span><span style="color: #008787; background-color: #262626;">removes job from job list</span>
-$<span style="color: #8787d7;">command</span> 2&gt;&amp;1 <span style="color: #008787; background-color: #262626;"># </span><span style="color: #008787; background-color: #262626;">redirect stderr to stdout</span>
+<pre  class="src src-bash">nohup xcalc &amp;  <span style="color: #458588; background-color: #282828;"># </span><span style="color: #458588; background-color: #282828;">run xcalc, ignore hangup signal</span>
+xcalc &amp; <span style="color: #83a598;">disown</span> <span style="color: #458588; background-color: #282828;"># </span><span style="color: #458588; background-color: #282828;">behaves the same as nohup</span>
+<span style="color: #458588; background-color: #282828;"># </span><span style="color: #458588; background-color: #282828;">Alternatively...</span>
+Ctrl + z  <span style="color: #458588; background-color: #282828;"># </span><span style="color: #458588; background-color: #282828;">suspends the current job (freezes processing)</span>
+<span style="color: #83a598;">bg</span>        <span style="color: #458588; background-color: #282828;"># </span><span style="color: #458588; background-color: #282828;">sends the current job to background (resume processing)</span>
+<span style="color: #83a598;">fg</span>        <span style="color: #458588; background-color: #282828;"># </span><span style="color: #458588; background-color: #282828;">brings job back to foreground (unfreezes)</span>
+<span style="color: #83a598;">disown</span>    <span style="color: #458588; background-color: #282828;"># </span><span style="color: #458588; background-color: #282828;">removes job from job list</span>
+$<span style="color: #83a598;">command</span> 2&gt;&amp;1 <span style="color: #458588; background-color: #282828;"># </span><span style="color: #458588; background-color: #282828;">redirect stderr to stdout</span>
 </pre>
 </div>
 </section>
 </section>
 <section>
-<section id="slide-orgheadline77">
-<h3 id="orgheadline77">SSH Demo</h3>
+<section id="slide-orgheadline78">
+<h3 id="orgheadline78">SSH Demo</h3>
 <video controls><source src="ssh.mp4" type="video/mp4"></video>
 
 </section>
 </section>
 <section>
-<section id="slide-orgheadline75">
-<h4 id="orgheadline75">Tmux</h4>
+<section id="slide-orgheadline76">
+<h4 id="orgheadline76">Tmux</h4>
 <ul>
-<li>Runs as a daemon, allowing remote sessions to stay alive after hangup</li>
+<li>Runs as a daemon, allowing sessions to stay alive after hangup</li>
 <li>Adds 'tab-like' behaviour to the terminal</li>
 <li>Can 'split' the terminal to two sub-screens</li>
 <li>Multiple clients connect to the same tmux daemon (multiplayer terminal!)</li>
@@ -1257,15 +1260,15 @@ $<span style="color: #8787d7;">command</span> 2&gt;&amp;1 <span style="color: #0
 </section>
 </section>
 <section>
-<section id="slide-orgheadline76">
-<h4 id="orgheadline76">Demo</h4>
+<section id="slide-orgheadline77">
+<h4 id="orgheadline77">Demo</h4>
 <video controls><source src="tmux.mp4" type="video/mp4"></video>
 
 </section>
 </section>
 <section>
-<section id="slide-orgheadline81">
-<h2 id="orgheadline81">Editors</h2>
+<section id="slide-orgheadline82">
+<h2 id="orgheadline82">Editors</h2>
 <ul>
 <li>Pick one that's not nano</li>
 <li>Get good at it, watch tutorials</li>
@@ -1276,8 +1279,8 @@ $<span style="color: #8787d7;">command</span> 2&gt;&amp;1 <span style="color: #0
 </section>
 </section>
 <section>
-<section id="slide-orgheadline79">
-<h3 id="orgheadline79">VI / VIM</h3>
+<section id="slide-orgheadline80">
+<h3 id="orgheadline80">VI / VIM</h3>
 <ul>
 <li>Probably the most popular editor</li>
 <li>Super fast navigation</li>
@@ -1288,8 +1291,8 @@ $<span style="color: #8787d7;">command</span> 2&gt;&amp;1 <span style="color: #0
 </section>
 </section>
 <section>
-<section id="slide-orgheadline80">
-<h3 id="orgheadline80">Emacs</h3>
+<section id="slide-orgheadline81">
+<h3 id="orgheadline81">Emacs</h3>
 <ul>
 <li>More featureful than VIM (<b>too</b> featureful?)</li>
 <li>Ergonomic hell, emacs pinky</li>
@@ -1303,13 +1306,13 @@ $<span style="color: #8787d7;">command</span> 2&gt;&amp;1 <span style="color: #0
 </section>
 </section>
 <section>
-<section id="slide-orgheadline82">
-<h2 id="orgheadline82">Further Reading&#x2026;</h2>
+<section id="slide-orgheadline83">
+<h2 id="orgheadline83">Further Reading&#x2026;</h2>
 <ul>
 <li>reddit.com/r/unixporn</li>
-<li>sectalks slack -&gt; clin</li>
 <li>irc.freenode.net</li>
 <li>news.ycombinator.com</li>
+<li>sectalks slack -&gt; clin</li>
 <li>the slides <a href="https://github.com/YoloClin/KaliDesktopTalk">https://github.com/YoloClin/KaliDesktopTalk</a> (hack, steal, whatever)</li>
 
 </ul>
@@ -1317,8 +1320,8 @@ $<span style="color: #8787d7;">command</span> 2&gt;&amp;1 <span style="color: #0
 </section>
 </section>
 <section>
-<section id="slide-orgheadline83">
-<h2 id="orgheadline83">Go hack some stuff</h2>
+<section id="slide-orgheadline84">
+<h2 id="orgheadline84">Go hack some stuff</h2>
 </section>
 </section>
 </div>
