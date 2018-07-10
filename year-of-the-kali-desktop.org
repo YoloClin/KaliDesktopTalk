@@ -37,6 +37,7 @@ CONFIG_COMPTUERS_X11_DEV=N
 - We're advanced computer users
 - We're only going to be using our computers for the rest of our lives, get it right now!
 - Tablet computers - WTF happened?
+- Doherty Threshold
 
 ** Unix Philosohpy
 'Make each program do one thing well. To do a new job, build afresh rather than complicate old programs by adding new "features."' - Doug McIlroy, E. N. Pinson, B. A. Tague (8 July 1978)
@@ -294,6 +295,16 @@ Note: SLiM is pretty much inactive / dead, there's probably better alternatives.
 Gnome, KDE, Xfce, Openbox, Weston (Wayland only)
 *** Tiled
 i3, ratpoison, qtile, bspwm, xmonad, awesome
+
+* A quick note on Terminal Emulators
+- Seems like Gnome-Terminal (Kali default) doesn't play well with non-gnome environments
+- Probably fixable, but didn't get time to troubleshoot
+#+BEGIN_SRC bash
+apt install -y xterm
+# Set default to xterm
+update-alternatives --config x-terminal-emulator
+#+END_SRC
+
 
 * Mate
 #+BEGIN_SRC bash
